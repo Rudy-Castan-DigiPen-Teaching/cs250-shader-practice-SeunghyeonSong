@@ -41,7 +41,7 @@ void main()
     center_of_circle.y = sin(relative_time) / 1.2;
 
     vec4 pct = vec4(st.x);
-    pct.r = (st.y - center_of_circle.y) * (st.y - center_of_circle.y) + (st.x - 0.5) * (st.x -0.5);
+    pct.r = (st.y - center_of_circle.y) * (st.y - center_of_circle.y) + (st.x - 0.5) * (st.x - 0.5);
     pct.g = pow(st.y * 2.0 - 1.0, 0.9);
     pct.b = pow(1.0 - st.y * 2.0, 0.4);
     pct.a = plot(st, sin(st.x * 80.) / 10.0);
