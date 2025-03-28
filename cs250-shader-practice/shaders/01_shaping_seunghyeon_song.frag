@@ -30,17 +30,17 @@ precision mediump float;
     // color = (1.0 - pct) * color * pct * vec3(0, 1.0, 0); 
 
     float test = (sin(u_time) / 2.0  + 0.5);
-    float max_range = 3.0;
+    float max_range = 20.0;
 
     vec3 color = vec3(1);
 
-    for(float f = 0; f < max_range; ++i){
-        float y_n = sqrt(i * 0.1 - pow(st.x, 2.0));
+    for(float f = 0.4; f < max_range; ++f){
+        float y_n = sin(st.x * (f + sin(u_time) * 10.)) * f / max_range + cos(u_time * f / max_range);
         vec3 color_n = vec3(y_n);
         float pct_n = plot(st, y_n);
-        color_n = (1.0 - pct_n) * color_n + pct_n * vec3(0, 0, sin(u_time));
+        color_n = (1.0 - pct_n) * color_n + pct_n * vec3(f / max_range, cos(u_time * f / max_range), sin(u_time * f / max_range));
 
-        color = mix(color, color_n, 0.5);
+        color = mix(color, color_n, pct_n);
     }
 
     FragColor = vec4(color, 1.0);
