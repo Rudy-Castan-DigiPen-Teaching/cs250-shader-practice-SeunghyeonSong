@@ -8,3 +8,5 @@
 [Gradient](draw.html?shader=02_gradient.frag)
 
 [Hsb](draw.html?shader=03_hsb.frag)
+
+[Circle](draw.html?shader=04_circle.frag)
